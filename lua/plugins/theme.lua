@@ -1,0 +1,1 @@
+/home/mario/.config/omarchy/current/theme/neovim.lua
