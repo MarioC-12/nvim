@@ -25,6 +25,9 @@ end
 return {
   "L3MON4D3/LuaSnip",
   build = "make install_jsregexp",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
   opts = {
     enable_autosnippets = true,
   },
