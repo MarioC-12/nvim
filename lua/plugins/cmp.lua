@@ -4,8 +4,30 @@ return {
     local cmp = require("cmp")
 
     opts.mapping = vim.tbl_deep_extend("force", opts.mapping, {
+
+      -- Disable Enter confirmation
       ["<CR>"] = cmp.config.disable,
-      ["<C-y"] = LazyVim.cmp.confirm({ select = true }),
+
+      -- Explicit confirm key
+      ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
+
+      -- Tab cycles forward
+      ["<Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
+
+      -- Shift-Tab cycles backward
+      ["<S-Tab>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end, { "i", "s" }),
     })
   end,
 }
