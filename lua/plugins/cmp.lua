@@ -63,5 +63,10 @@ return {
         cmp.config.compare.order,
       },
     }
+
+    opts.window = {
+      completion = cmp.config.window.bordered(),
+      documentation = cmp.config.window.bordered(),
+    }
   end,
 }
